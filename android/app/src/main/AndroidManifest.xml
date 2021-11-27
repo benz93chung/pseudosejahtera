@@ -2,7 +2,7 @@
     package="com.example.pseudosejahtera">
    <application
         android:label="pseudosejahtera"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/launcher_icon">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
