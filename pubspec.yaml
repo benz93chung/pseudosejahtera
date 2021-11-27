@@ -1,0 +1,24 @@
+name: pseudosejahtera
+description: An app that mocks the MySejahtera app, which is developed by the Malaysian Government to mitigate the country's COVID-19 pandemic. This mock is strictly for educational purposes and is not meant to be used in real world situations.
+
+publish_to: "none"
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^1.0.0
+
+flutter:
+  uses-material-design: true
