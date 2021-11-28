@@ -11,7 +11,7 @@ Future<void> main() async {
 
       await FlutterStatusbarcolor.setStatusBarColor(const Color(0xFF3983FE));
 
-      runApp(const MyApp());
+      runApp(const PseudoSejahteraApp());
     },
     (_, __) {},
   );

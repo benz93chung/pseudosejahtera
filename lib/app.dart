@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:pseudosejahtera/constants/dimensions.dart';
 import 'package:pseudosejahtera/screens/start_page/start_page.dart';
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class PseudoSejahteraApp extends StatelessWidget {
+  const PseudoSejahteraApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
