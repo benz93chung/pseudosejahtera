@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pseudosejahtera/components/pseudo_scaffold.dart';
 import 'package:pseudosejahtera/icons/pseudo_sejahtera_icons_icons.dart';
-import 'package:pseudosejahtera/screens/vaccination_status_card.dart';
+import 'package:pseudosejahtera/screens/status_page/components/vaccination_status_card.dart';
 
-import '../utils/test_utils.dart';
+import '../../../utils/test_utils.dart';
 
 void main() {
   testWidgets('VaccinationStatusCard is rendered correctly', (tester) async {

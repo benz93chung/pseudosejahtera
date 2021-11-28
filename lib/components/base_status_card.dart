@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:pseudosejahtera/components/base_card.dart';
+import 'package:pseudosejahtera/constants/dimensions.dart';
 
 class BaseStatusCard extends StatelessWidget {
   final Color backgroundColor, foregroundColor;
@@ -16,50 +18,47 @@ class BaseStatusCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8.0),
-      child: Card(
-        color: Colors.transparent,
-        elevation: 4.0,
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(8.0),
-          child: Container(
-            color: backgroundColor,
-            child: Row(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Icon(
-                    icon,
-                    color: foregroundColor,
-                    size: 50.0,
-                  ),
-                ),
-                Builder(
-                  builder: (context) {
-                    final textTheme = Theme.of(context).textTheme;
-
-                    return Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          label,
-                          style: textTheme.subtitle2?.copyWith(
-                            color: foregroundColor,
-                            fontWeight: FontWeight.w300,
-                          ),
-                        ),
-                        Text(
-                          text,
-                          style: textTheme.headline6?.copyWith(color: foregroundColor),
-                        ),
-                      ],
-                    );
-                  },
-                ),
-              ],
+    return BaseCard(
+      child: Container(
+        padding: const EdgeInsets.all(spacingLarge),
+        color: backgroundColor,
+        child: Row(
+          children: [
+            Container(
+              padding: const EdgeInsets.only(left: spacingXSmall, right: spacingXMid),
+              child: Icon(
+                icon,
+                color: foregroundColor,
+                size: statusPageCardIconSize,
+              ),
             ),
-          ),
+            Flexible(
+              child: Builder(
+                builder: (context) {
+                  final textTheme = Theme.of(context).textTheme;
+
+                  return Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        label,
+                        style: textTheme.subtitle2?.copyWith(
+                          color: foregroundColor,
+                          fontWeight: FontWeight.w300,
+                        ),
+                      ),
+                      const Padding(padding: EdgeInsets.symmetric(vertical: spacingXSmall)),
+                      Text(
+                        text,
+                        style: textTheme.headline6?.copyWith(color: foregroundColor),
+                      ),
+                    ],
+                  );
+                },
+              ),
+            ),
+          ],
         ),
       ),
     );

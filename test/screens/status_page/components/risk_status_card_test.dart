@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:pseudosejahtera/components/base_status_card.dart';
 import 'package:pseudosejahtera/components/pseudo_scaffold.dart';
-import 'package:pseudosejahtera/screens/risk_status_card.dart';
+import 'package:pseudosejahtera/screens/status_page/components/risk_status_card.dart';
 
-import '../utils/test_utils.dart';
+import '../../../utils/test_utils.dart';
 
 void main() {
   testWidgets('RiskStatusCard is rendered correctly', (tester) async {
