@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pseudosejahtera/components/pseudo_scaffold.dart';
 import 'package:pseudosejahtera/constants/dimensions.dart';
+import 'package:pseudosejahtera/enums/check_in_status.dart';
 import 'package:pseudosejahtera/models/check_in.dart';
 import 'package:pseudosejahtera/models/check_in_history.dart';
 import 'package:pseudosejahtera/screens/status_page/components/bottom_section.dart';
@@ -51,6 +52,7 @@ class StatusPage extends StatelessWidget {
                           checkIn: CheckIn.create(
                               id: 'ae564ca1-e7ef-4850-bf07-365f10598026',
                               name: 'MORBITES Burger (formerly SixtyBites)'),
+                          checkInStatus: CheckInStatus.checkedIn,
                           createdAt: DateTime.fromMillisecondsSinceEpoch(1638016947000),
                           modifiedAt: DateTime.fromMillisecondsSinceEpoch(1638024147000),
                         ),

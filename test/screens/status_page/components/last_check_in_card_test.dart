@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pseudosejahtera/components/pseudo_scaffold.dart';
+import 'package:pseudosejahtera/enums/check_in_status.dart';
 import 'package:pseudosejahtera/extensions/date_time_extensions.dart';
 import 'package:pseudosejahtera/models/check_in.dart';
 import 'package:pseudosejahtera/models/check_in_history.dart';
@@ -16,6 +17,7 @@ void main() {
         id: 'dont_matter',
         name: 'Sir Alex Ferguson Stand @ Old Trafford',
       ),
+      checkInStatus: CheckInStatus.checkedIn,
       createdAt: DateTime.fromMillisecondsSinceEpoch(1638016947000),
       modifiedAt: DateTime.fromMillisecondsSinceEpoch(1638024147000),
     );
