@@ -7,6 +7,7 @@ class PseudoButton extends StatelessWidget {
   final GestureTapCallback onPressed;
   final double? minWidth;
   final double? elevation;
+  final Color? backgroundColor;
 
   const PseudoButton({
     Key? key,
@@ -15,6 +16,7 @@ class PseudoButton extends StatelessWidget {
     this.padding = const EdgeInsets.all(spacingSmall),
     this.minWidth,
     this.elevation = 0,
+    this.backgroundColor,
   }) : super(key: key);
 
   @override
@@ -23,12 +25,11 @@ class PseudoButton extends StatelessWidget {
       builder: (context) {
         final theme = Theme.of(context);
         final colorScheme = theme.colorScheme;
-        final textTheme = theme.textTheme;
 
         return MaterialButton(
           onPressed: onPressed,
           padding: padding,
-          color: colorScheme.primary,
+          color: backgroundColor ?? colorScheme.primary,
           child: Padding(
             padding: const EdgeInsets.all(spacingSmall),
             child: child,

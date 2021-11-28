@@ -30,3 +30,5 @@ const double pseudoSejahteraLogoHeight = 100.0;
 
 const double checkInCardIconSize = 44.0;
 const double statusPageCardIconSize = 50.0;
+
+const double refreshStatusIconSize = 20.0;

@@ -24,7 +24,7 @@ class NameAndICNumberSection extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Padding(
-                padding: const EdgeInsets.symmetric(vertical: spacingLarge),
+                padding: const EdgeInsets.only(bottom: spacingLarge),
                 child: Image.asset(
                   'assets/icon/icon.png',
                   width: pseudoSejahteraLogoWidth,

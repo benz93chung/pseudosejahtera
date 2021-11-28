@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pseudosejahtera/constants/dimensions.dart';
-import 'package:pseudosejahtera/screens/status_page/status_page.dart';
+import 'package:pseudosejahtera/screens/start_page/start_page.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -43,7 +43,7 @@ class MyApp extends StatelessWidget {
             onError: Colors.white,
           ),
         ),
-        home: const StatusPage(),
+        home: const StartPage(),
       );
     });
   }
