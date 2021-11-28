@@ -21,14 +21,18 @@ const double opacityMed = 0.60;
 const double opacityLow = 0.38;
 const double opacityMin = 0.12;
 
+// Outline button width
 const double outlineBtnWidth = 1.5;
 
+// Elevation
 const double baseCardElevation = 4.0;
 
+// PseudoSejahtera dimensions
 const double pseudoSejahteraLogoWidth = 100.0;
 const double pseudoSejahteraLogoHeight = 100.0;
 
+// Icons sizings
 const double checkInCardIconSize = 44.0;
-const double statusPageCardIconSize = 50.0;
-
+const double checkinHistoryIconSize = 36.0;
 const double refreshStatusIconSize = 20.0;
+const double statusPageCardIconSize = 50.0;
