@@ -13,7 +13,7 @@ import '../../utils/widget_tester_extensions.dart';
 
 void main() {
   testWidgets('StatusPage is rendered correctly', (tester) async {
-    await _pumpCard(tester: tester);
+    await _pumpPage(tester: tester);
 
     expect(find.byType(Image), findsOneWidget);
     expect(find.byType(NameAndICNumberSection), findsOneWidget);
@@ -29,7 +29,7 @@ void main() {
   });
 }
 
-Future<void> _pumpCard({required WidgetTester tester}) async {
+Future<void> _pumpPage({required WidgetTester tester}) async {
   await pumpWidgetToTest(
     tester: tester,
     widgetToTest: const StatusPage(),

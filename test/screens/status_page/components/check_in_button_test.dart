@@ -7,7 +7,7 @@ import '../../../utils/test_utils.dart';
 
 void main() {
   testWidgets('CheckInButton is rendered correctly', (tester) async {
-    await _pumpCard(tester: tester);
+    await _pumpButton(tester: tester);
 
     expect(find.text('Check-in'), findsOneWidget);
   });
@@ -15,7 +15,7 @@ void main() {
   testWidgets('CheckInButton callback works correctly', (tester) async {
     var pressed = false;
 
-    await _pumpCard(
+    await _pumpButton(
       tester: tester,
       onPressed: () {
         pressed = true;
@@ -27,7 +27,7 @@ void main() {
   });
 }
 
-Future<void> _pumpCard({
+Future<void> _pumpButton({
   required WidgetTester tester,
   GestureTapCallback? onPressed,
 }) async {

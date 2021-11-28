@@ -8,13 +8,13 @@ import '../../../utils/test_utils.dart';
 
 void main() {
   testWidgets('BottomSection is rendered correctly', (tester) async {
-    await _pumpCard(tester: tester);
+    await _pumpSection(tester: tester);
 
     expect(find.byType(CheckInButton), findsOneWidget);
   });
 }
 
-Future<void> _pumpCard({required WidgetTester tester}) async {
+Future<void> _pumpSection({required WidgetTester tester}) async {
   await pumpWidgetToTest(
     tester: tester,
     widgetToTest: PseudoScaffold(

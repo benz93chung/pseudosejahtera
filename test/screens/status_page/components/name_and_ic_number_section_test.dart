@@ -7,7 +7,7 @@ import '../../../utils/test_utils.dart';
 
 void main() {
   testWidgets('NameAndICNumberSection callback works correctly', (tester) async {
-    await _pumpCard(
+    await _pumpSection(
       tester: tester,
       name: 'Matthew Charles Sanders',
       icNumber: '000000000000',
@@ -19,7 +19,7 @@ void main() {
   });
 }
 
-Future<void> _pumpCard({
+Future<void> _pumpSection({
   required WidgetTester tester,
   required String name,
   required String icNumber,
