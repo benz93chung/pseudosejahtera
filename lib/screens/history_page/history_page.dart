@@ -141,6 +141,7 @@ class _CheckedInTabPage extends StatelessWidget {
                   'Check-out all',
                   style: theme.textTheme.button?.copyWith(
                     color: colorScheme.onPrimary,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
               ),
