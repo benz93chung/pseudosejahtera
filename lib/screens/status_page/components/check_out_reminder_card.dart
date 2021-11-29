@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pseudosejahtera/components/base_card.dart';
 import 'package:pseudosejahtera/components/pseudo_outlined_button.dart';
 import 'package:pseudosejahtera/constants/dimensions.dart';
+import 'package:pseudosejahtera/screens/history_page/history_page.dart';
 
 class CheckOutReminderCard extends StatelessWidget {
   final int historyCount;
@@ -61,7 +62,14 @@ class CheckOutReminderCard extends StatelessWidget {
                 SizedBox(
                   width: double.infinity,
                   child: PseudoOutlinedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const HistoryPage(),
+                        ),
+                      );
+                    },
                     backgroundColor: colorScheme.error,
                     foregroundColor: colorScheme.onError,
                     child: Builder(
