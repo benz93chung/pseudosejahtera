@@ -43,6 +43,16 @@ class CheckInHistory extends Equatable {
     );
   }
 
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'check_in': checkIn.toJson(),
+      'check_in_status': checkInStatus.index,
+      'created_at': createdAt.millisecondsSinceEpoch,
+      'modified_at': modifiedAt.millisecondsSinceEpoch,
+    };
+  }
+
   @override
   List<Object?> get props => [id, checkIn];
 }

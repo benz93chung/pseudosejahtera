@@ -25,6 +25,22 @@ class HistoryPageHistoriesLoaded extends HistoryPageState {
         );
 }
 
+class HistoryPageHistoriesUpdating extends HistoryPageState {
+  const HistoryPageHistoriesUpdating({
+    required List<CheckInHistory> checkInHistories,
+  }) : super(
+          checkInHistories: checkInHistories,
+        );
+}
+
+class HistoryPageHistoriesUpdated extends HistoryPageState {
+  const HistoryPageHistoriesUpdated({
+    required List<CheckInHistory> checkInHistories,
+  }) : super(
+          checkInHistories: checkInHistories,
+        );
+}
+
 class HistoryPageError extends HistoryPageState {
   final Object errorObj;
 

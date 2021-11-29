@@ -45,6 +45,36 @@ class HistoryPageCubit extends Cubit<HistoryPageState> {
     }
   }
 
+  Future<void> clearAllCheckedIns() async {
+    if (!state.checkInHistories.any(
+      (history) => history.checkInStatus == CheckInStatus.checkedIn,
+    )) {
+      return;
+    }
+
+    emit(HistoryPageHistoriesUpdating(checkInHistories: state.checkInHistories));
+
+    var updatedHistories = <CheckInHistory>[...checkedOuts];
+
+    try {
+      for (var history in checkedIns) {
+        final newHistoryJson = history.toJson();
+        newHistoryJson['check_in_status'] = CheckInStatus.checkedOut.index;
+
+        updatedHistories.insert(0, CheckInHistory.fromJson(json: newHistoryJson));
+
+        emit(HistoryPageHistoriesUpdated(checkInHistories: updatedHistories));
+      }
+    } catch (e) {
+      emit(
+        HistoryPageError(
+          errorObj: e,
+          checkInHistories: state.checkInHistories,
+        ),
+      );
+    }
+  }
+
   List<CheckInHistory> _filterHistoriesByCheckInStatus({
     required List<CheckInHistory> histories,
     required CheckInStatus status,

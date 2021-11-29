@@ -36,3 +36,4 @@ const double checkInCardIconSize = 44.0;
 const double checkinHistoryIconSize = 36.0;
 const double refreshStatusIconSize = 20.0;
 const double statusPageCardIconSize = 50.0;
+const double emptyCheckInsIconSize = 180.0;

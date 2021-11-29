@@ -82,6 +82,9 @@ class _HistoryPageState extends State<HistoryPage> {
                                       ),
                                     )
                                     .toList(),
+                            onPressedCheckOutAllButton: () async {
+                              await _historyPageCubit.clearAllCheckedIns();
+                            },
                           ),
                           _CheckedOutTabPage(
                             tiles: state is HistoryPageInitial
@@ -112,10 +115,12 @@ class _HistoryPageState extends State<HistoryPage> {
 
 class _CheckedInTabPage extends StatelessWidget {
   final List<HistoryPageTile> tiles;
+  final GestureTapCallback onPressedCheckOutAllButton;
 
   const _CheckedInTabPage({
     Key? key,
     required this.tiles,
+    required this.onPressedCheckOutAllButton,
   }) : super(key: key);
 
   @override
@@ -124,6 +129,11 @@ class _CheckedInTabPage extends StatelessWidget {
       builder: (context) {
         final theme = Theme.of(context);
         final colorScheme = theme.colorScheme;
+        final textTheme = theme.textTheme;
+
+        if (tiles.isEmpty) {
+          return const _CheckedInTabPageEmptyBody();
+        }
 
         return Column(
           mainAxisSize: MainAxisSize.min,
@@ -136,10 +146,10 @@ class _CheckedInTabPage extends StatelessWidget {
               color: colorScheme.surface,
               padding: const EdgeInsets.all(spacingMid),
               child: PseudoButton(
-                onPressed: () {},
+                onPressed: onPressedCheckOutAllButton,
                 child: Text(
                   'Check-out all',
-                  style: theme.textTheme.button?.copyWith(
+                  style: textTheme.button?.copyWith(
                     color: colorScheme.onPrimary,
                     fontWeight: FontWeight.w600,
                   ),
@@ -147,6 +157,52 @@ class _CheckedInTabPage extends StatelessWidget {
               ),
             ),
           ],
+        );
+      },
+    );
+  }
+}
+
+class _CheckedInTabPageEmptyBody extends StatelessWidget {
+  const _CheckedInTabPageEmptyBody({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Builder(
+      builder: (context) {
+        final theme = Theme.of(context);
+        final colorScheme = theme.colorScheme;
+        final textTheme = theme.textTheme;
+
+        return Padding(
+          padding: const EdgeInsets.symmetric(horizontal: spacingSmall),
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Icon(
+                  Icons.home_outlined,
+                  size: emptyCheckInsIconSize,
+                  color: colorScheme.primary,
+                ),
+                Text(
+                  'No active check-ins today.\nLooks like you are staying safe at home!',
+                  textAlign: TextAlign.center,
+                  style: textTheme.headline5?.copyWith(
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+                const Padding(
+                  padding: EdgeInsets.symmetric(vertical: spacingMid),
+                ),
+                const Text(
+                  'Thank you for your efforts in breaking the COVID-19 infection chain!',
+                  textAlign: TextAlign.center,
+                ),
+              ],
+            ),
+          ),
         );
       },
     );

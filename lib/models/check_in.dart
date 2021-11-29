@@ -23,6 +23,13 @@ class CheckIn extends Equatable {
     );
   }
 
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'name': name,
+    };
+  }
+
   @override
   List<Object?> get props => [id, name];
 }

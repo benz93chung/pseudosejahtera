@@ -28,10 +28,10 @@ void main() {
           ],
         );
 
-        final mockCubit = HistoryPageCubit.initial();
-        await mockCubit.loadHistories();
+        final cubit = HistoryPageCubit.initial();
+        await cubit.loadHistories();
 
-        expect(mockCubit.checkedIns.length, equals(3));
+        expect(cubit.checkedIns.length, equals(3));
       },
     );
 
@@ -48,10 +48,10 @@ void main() {
           ],
         );
 
-        final mockCubit = HistoryPageCubit.initial();
-        await mockCubit.loadHistories();
+        final cubit = HistoryPageCubit.initial();
+        await cubit.loadHistories();
 
-        expect(mockCubit.checkedOuts.length, equals(2));
+        expect(cubit.checkedOuts.length, equals(2));
       },
     );
   });
@@ -70,11 +70,11 @@ void main() {
           ],
         );
 
-        final mockCubit = HistoryPageCubit.initial();
-        await mockCubit.loadHistories();
+        final cubit = HistoryPageCubit.initial();
+        await cubit.loadHistories();
 
-        expect(mockCubit.state, isA<HistoryPageHistoriesLoaded>());
-        expect(mockCubit.state.checkInHistories.length, equals(5));
+        expect(cubit.state, isA<HistoryPageHistoriesLoaded>());
+        expect(cubit.state.checkInHistories.length, equals(5));
       },
     );
 
@@ -85,12 +85,36 @@ void main() {
           error: Exception('Oh no it went wrong!'),
         );
 
-        final mockCubit = HistoryPageCubit.initial();
+        final cubit = HistoryPageCubit.initial();
 
-        await mockCubit.loadHistories();
+        await cubit.loadHistories();
 
-        expect(mockCubit.state, isA<HistoryPageError>());
-        expect((mockCubit.state as HistoryPageError).errorObj, isA<Exception>());
+        expect(cubit.state, isA<HistoryPageError>());
+        expect((cubit.state as HistoryPageError).errorObj, isA<Exception>());
+      },
+    );
+  });
+
+  group('HistoryPageCubit clearAllCheckedIns', () {
+    test(
+      'clearAllCheckedIns checks out all check-ins successfully and emits HistoryPageHistoriesUpdated',
+      () async {
+        _mockCheckInHistoriesService(
+          checkInHistories: [
+            buildCheckInHistoryFromTemplate(checkInStatus: CheckInStatus.checkedIn),
+            buildCheckInHistoryFromTemplate(checkInStatus: CheckInStatus.checkedIn),
+            buildCheckInHistoryFromTemplate(checkInStatus: CheckInStatus.checkedIn),
+          ],
+        );
+
+        final cubit = HistoryPageCubit.initial();
+        await cubit.loadHistories();
+        await cubit.clearAllCheckedIns();
+
+        expect(cubit.state, isA<HistoryPageHistoriesUpdated>());
+        for (final history in cubit.state.checkInHistories) {
+          expect(history.checkInStatus == CheckInStatus.checkedOut, isTrue);
+        }
       },
     );
   });
