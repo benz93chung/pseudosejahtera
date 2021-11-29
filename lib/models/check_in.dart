@@ -14,6 +14,15 @@ class CheckIn extends Equatable {
   }) =>
       CheckIn._(id: id, name: name);
 
+  factory CheckIn.fromJson({
+    required Map<String, dynamic> json,
+  }) {
+    return CheckIn._(
+      id: json['id'],
+      name: json['name'],
+    );
+  }
+
   @override
   List<Object?> get props => [id, name];
 }

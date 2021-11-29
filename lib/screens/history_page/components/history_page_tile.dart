@@ -45,7 +45,7 @@ class HistoryPageTile extends StatelessWidget {
                       size: checkinHistoryIconSize,
                     ),
                   ),
-                  Flexible(
+                  Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisSize: MainAxisSize.min,
@@ -65,10 +65,6 @@ class HistoryPageTile extends StatelessWidget {
                       ],
                     ),
                   ),
-                  if (isCheckedIn)
-                    const Padding(
-                      padding: EdgeInsets.symmetric(horizontal: spacingSmall),
-                    ),
                   if (isCheckedIn)
                     PseudoButton(
                       onPressed: () {

@@ -1,0 +1,72 @@
+[
+  {
+    "id": "6d314ed3-6ff0-49f7-bd93-963e10fd8bc4",
+    "check_in": {
+      "id": "ae564ca1-e7ef-4850-bf07-365f10598026",
+      "name": "MORBITES Burger (formerly SixtyBites)"
+    },
+    "check_in_status": 0,
+    "created_at": 1638016947000,
+    "modified_at": 1638016947000
+  },
+  {
+    "id": "bb84db82-4dc6-4aa6-ab0f-c2391cfe9cc6",
+    "check_in": {
+      "id": "d1a80ee3-209a-443b-8ad9-a24e735c6ac1",
+      "name": "Sri Nirwana Maju Restaurant - Bangsar"
+    },
+    "check_in_status": 0,
+    "created_at": 1637930117000,
+    "modified_at": 1637930117000
+  },
+  {
+    "id": "eb3f2c0d-0183-4485-b22d-276c25b6e560",
+    "check_in": {
+      "id": "6eccaaff-b6e5-4630-b3b7-8774d3ea49ed",
+      "name": "Family Mart USJ 10 Taipan"
+    },
+    "check_in_status": 0,
+    "created_at": 1637786117000,
+    "modified_at": 1637786117000
+  },
+  {
+    "id": "d4ee81d5-33ff-4e50-8620-9abe5bcdd90e",
+    "check_in": {
+      "id": "ac74b1a0-db8b-4045-b7c3-dd7d09d53089",
+      "name": "McDonald's Taipan"
+    },
+    "check_in_status": 0,
+    "created_at": 1637753717000,
+    "modified_at": 1637753717000
+  },
+  {
+    "id": "911f5458-7578-48a8-8634-0616a212f1a0",
+    "check_in": {
+      "id": "f011f80c-19b0-4c69-a17c-36cf895c5da5",
+      "name": "Sunway Pyramid Shopping Centre"
+    },
+    "check_in_status": 0,
+    "created_at": 1637678117000,
+    "modified_at": 1637678117000
+  },
+  {
+    "id": "674c010c-d2e0-45ec-80f9-d33a48292005",
+    "check_in": {
+      "id": "bbcf49e0-52f6-42ea-bf21-a9ddad8cad06",
+      "name": "Suria KLCC"
+    },
+    "check_in_status": 1,
+    "created_at": 1637584517000,
+    "modified_at": 1637595317000
+  },
+  {
+    "id": "1ae2c412-7feb-4f6b-a0f0-b89ec96a858c",
+    "check_in": {
+      "id": "7d574bed-3e92-47a9-9651-dc56359d558b",
+      "name": "Big Brooklyn Pizza SS15"
+    },
+    "check_in_status": 1,
+    "created_at": 1637584517000,
+    "modified_at": 1637595317000
+  }
+]

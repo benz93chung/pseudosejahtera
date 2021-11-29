@@ -1,5 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pseudosejahtera/cubits/history_page_cubit.dart';
+import 'package:pseudosejahtera/service_locator.dart';
+import 'package:pseudosejahtera/services/check_in_histories_service.dart';
+import '../mocks/cubits/mock_history_page_cubit.dart';
+import '../mocks/cubits/mock_history_page_cubit.mocks.dart';
+import '../mocks/services/mock_check_in_histories_service.dart';
+import '../mocks/services/mock_check_in_histories_service.mocks.dart';
 import 'widget_tester_extensions.dart';
 
 Future<void> pumpWidgetToTest({
@@ -56,4 +63,17 @@ class TestApp extends StatelessWidget {
       home: widgetToTest,
     );
   }
+}
+
+void initMockDependencies({
+  MockCheckInHistoriesService? mockCheckInHistoriesService,
+  MockHistoryPageCubit? mockHistoryPageCubit,
+}) {
+  sl.registerLazySingleton<CheckInHistoriesService>(
+    () => mockCheckInHistoriesService ?? getMockCheckInHistoriesService(),
+  );
+
+  sl.registerLazySingleton<HistoryPageCubit>(
+    () => mockHistoryPageCubit ?? getMockHistoryPageCubit(),
+  );
 }

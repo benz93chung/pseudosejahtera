@@ -31,6 +31,18 @@ class CheckInHistory extends Equatable {
         modifiedAt: modifiedAt,
       );
 
+  factory CheckInHistory.fromJson({
+    required Map<String, dynamic> json,
+  }) {
+    return CheckInHistory._(
+      id: json['id'],
+      checkIn: CheckIn.fromJson(json: json['check_in']),
+      checkInStatus: CheckInStatus.values[json['check_in_status']],
+      createdAt: DateTime.fromMillisecondsSinceEpoch(json['created_at']),
+      modifiedAt: DateTime.fromMillisecondsSinceEpoch(json['modified_at']),
+    );
+  }
+
   @override
   List<Object?> get props => [id, checkIn];
 }

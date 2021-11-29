@@ -15,7 +15,7 @@ void main() {
 
     expect(find.text('You are currently checked-in at 13 locations.'), findsOneWidget);
     expect(
-      find.text('Please check yourself out from locations that you are no longer present at.'),
+      find.text('Please check-out from locations you are no longer present at.'),
       findsOneWidget,
     );
     expect(

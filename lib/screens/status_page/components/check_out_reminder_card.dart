@@ -50,7 +50,7 @@ class CheckOutReminderCard extends StatelessWidget {
                           ),
                           const Padding(padding: EdgeInsets.symmetric(vertical: spacingXSmall)),
                           Text(
-                            'Please check yourself out from locations that you are no longer present at.',
+                            'Please check-out from locations you are no longer present at.',
                             style: textTheme.subtitle1?.copyWith(color: colorScheme.onError),
                           ),
                         ],

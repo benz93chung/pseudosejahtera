@@ -42,7 +42,7 @@ class StatusPage extends StatelessWidget {
                     ),
                     const Padding(
                       padding: EdgeInsets.symmetric(horizontal: spacingSmall, vertical: spacingXSmall),
-                      child: CheckOutReminderCard(historyCount: 12),
+                      child: CheckOutReminderCard(historyCount: 5),
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: spacingSmall, vertical: spacingXSmall),
