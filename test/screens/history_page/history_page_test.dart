@@ -21,6 +21,7 @@ void main() {
       expect(find.byType(Tab), findsNWidgets(2));
       expect(find.text('Checked-in'), findsOneWidget);
       expect(find.text('Checked-out'), findsOneWidget);
+      expect(find.text('Check-out all'), findsOneWidget);
     });
   });
 
