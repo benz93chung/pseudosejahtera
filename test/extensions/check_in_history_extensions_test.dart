@@ -1,8 +1,9 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pseudosejahtera/enums/check_in_status.dart';
 import 'package:pseudosejahtera/extensions/check_in_history_extensions.dart';
-import 'package:pseudosejahtera/models/check_in.dart';
 import 'package:pseudosejahtera/models/check_in_history.dart';
+
+import '../mocks/cubits/mock_history_page_cubit.dart';
 
 void main() {
   test(
@@ -25,9 +26,9 @@ void main() {
 CheckInHistory _getHistory({
   required CheckInStatus checkInStatus,
 }) =>
-    CheckInHistory.create(
+    buildCheckInHistoryFromTemplate(
       id: '6d314ed3-6ff0-49f7-bd93-963e10fd8bc4',
-      checkIn: CheckIn.create(
+      checkIn: buildCheckInFromTemplate(
         id: 'ae564ca1-e7ef-4850-bf07-365f10598026',
         name: 'MORBITES Burger (formerly SixtyBites)',
       ),

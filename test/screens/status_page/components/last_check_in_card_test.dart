@@ -3,17 +3,17 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pseudosejahtera/components/pseudo_scaffold.dart';
 import 'package:pseudosejahtera/enums/check_in_status.dart';
 import 'package:pseudosejahtera/extensions/date_time_extensions.dart';
-import 'package:pseudosejahtera/models/check_in.dart';
 import 'package:pseudosejahtera/models/check_in_history.dart';
 import 'package:pseudosejahtera/screens/status_page/components/last_check_in_card.dart';
 
+import '../../../mocks/cubits/mock_history_page_cubit.dart';
 import '../../../utils/test_utils.dart';
 
 void main() {
   testWidgets('LastCheckInCard is rendered correctly', (tester) async {
-    final checkInHistory = CheckInHistory.create(
+    final checkInHistory = buildCheckInHistoryFromTemplate(
       id: 'dont_matter',
-      checkIn: CheckIn.create(
+      checkIn: buildCheckInFromTemplate(
         id: 'dont_matter',
         name: 'Sir Alex Ferguson Stand @ Old Trafford',
       ),
