@@ -21,8 +21,9 @@ const double opacityMed = 0.60;
 const double opacityLow = 0.38;
 const double opacityMin = 0.12;
 
-// Outline button width
+// Width
 const double outlineBtnWidth = 1.5;
+const double checkInStatusSignageBorderWidth = 4.0;
 
 // Elevation
 const double baseCardElevation = 4.0;
@@ -37,3 +38,4 @@ const double checkinHistoryIconSize = 36.0;
 const double refreshStatusIconSize = 20.0;
 const double statusPageCardIconSize = 50.0;
 const double emptyCheckInsIconSize = 180.0;
+const double checkInStatusSignageSize = 72.0;

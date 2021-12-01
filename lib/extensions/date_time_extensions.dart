@@ -5,6 +5,7 @@ final ddMMMyyyy = DateFormat('dd MMM yyyy');
 final ddMMMyyyyHHmmss = DateFormat('yyyy-MM-dd jm');
 final dMMMyyyyhmma = DateFormat('d MMM yyyy, h:mm a');
 final yyyyMMddkkmm = DateFormat('yyyy-MM-dd kk:mm');
+final hmmssa = DateFormat('h:mm:ss a');
 final jm = DateFormat.jm();
 
 extension DateTimeExtension on DateTime {
