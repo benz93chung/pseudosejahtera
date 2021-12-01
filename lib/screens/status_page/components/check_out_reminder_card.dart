@@ -23,7 +23,7 @@ class CheckOutReminderCard extends StatelessWidget {
         return BaseCard(
           child: Container(
             padding: const EdgeInsets.all(spacingLarge),
-            color: colorScheme.error,
+            color: Colors.red.shade200,
             child: Column(
               children: [
                 Row(
@@ -32,7 +32,7 @@ class CheckOutReminderCard extends StatelessWidget {
                       padding: const EdgeInsets.only(left: spacingXSmall, right: spacingXMid),
                       child: Icon(
                         Icons.error_outline,
-                        color: colorScheme.onError,
+                        color: colorScheme.onSurface,
                         size: statusPageCardIconSize,
                       ),
                     ),
@@ -44,14 +44,16 @@ class CheckOutReminderCard extends StatelessWidget {
                           Text(
                             'You are currently checked-in at $historyCount locations.',
                             style: textTheme.headline6?.copyWith(
-                              color: colorScheme.onError,
+                              color: colorScheme.onSurface,
                               fontWeight: FontWeight.w500,
                             ),
                           ),
                           const Padding(padding: EdgeInsets.symmetric(vertical: spacingXSmall)),
                           Text(
                             'Please check-out from locations you are no longer present at.',
-                            style: textTheme.subtitle1?.copyWith(color: colorScheme.onError),
+                            style: textTheme.subtitle1?.copyWith(
+                              color: colorScheme.onSurface,
+                            ),
                           ),
                         ],
                       ),
@@ -70,8 +72,8 @@ class CheckOutReminderCard extends StatelessWidget {
                         ),
                       );
                     },
-                    backgroundColor: colorScheme.error,
-                    foregroundColor: colorScheme.onError,
+                    backgroundColor: Colors.red.shade200,
+                    foregroundColor: colorScheme.onSurface,
                     child: Builder(
                       builder: (context) {
                         final theme = Theme.of(context);
@@ -79,7 +81,7 @@ class CheckOutReminderCard extends StatelessWidget {
                         return Text(
                           'Review Check-in History',
                           style: theme.textTheme.button?.copyWith(
-                            color: theme.colorScheme.onError,
+                            color: colorScheme.onSurface,
                             fontWeight: FontWeight.w600,
                           ),
                         );
