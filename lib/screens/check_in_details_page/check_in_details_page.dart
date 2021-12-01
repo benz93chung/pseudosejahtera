@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pseudosejahtera/components/center_to_scrollable_widget.dart';
 import 'package:pseudosejahtera/components/pseudo_button.dart';
 import 'package:pseudosejahtera/components/pseudo_scaffold.dart';
 import 'package:pseudosejahtera/constants/dimensions.dart';
@@ -46,39 +47,28 @@ class _CheckInDetailsPageState extends State<CheckInDetailsPage> {
             ],
           ),
           backgroundColor: Colors.grey.shade600,
-          body: Stack(
+          body: CenterToScrollableWidget(
+            physics: const ClampingScrollPhysics(),
             children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Expanded(
-                    child: ListView(
-                      shrinkWrap: true,
-                      children: [
-                        CheckInDetailsCard(checkInHistory: _checkInHistory),
-                      ],
-                    ),
-                  ),
-                  if (_checkInHistory.checkInStatus == CheckInStatus.checkedIn)
-                    Container(
-                      width: double.infinity,
-                      color: theme.colorScheme.surface,
-                      padding: const EdgeInsets.all(spacingMid),
-                      child: PseudoButton(
-                        onPressed: () {},
-                        child: Text(
-                          'Check-out',
-                          style: theme.textTheme.button?.copyWith(
-                            color: theme.colorScheme.onPrimary,
-                            fontWeight: FontWeight.w600,
-                          ),
+              CheckInDetailsCard(checkInHistory: _checkInHistory),
+            ],
+            stickyBottomWidget: (_checkInHistory.checkInStatus == CheckInStatus.checkedIn)
+                ? Container(
+                    width: double.infinity,
+                    color: theme.colorScheme.surface,
+                    padding: const EdgeInsets.all(spacingMid),
+                    child: PseudoButton(
+                      onPressed: () {},
+                      child: Text(
+                        'Check-out',
+                        style: theme.textTheme.button?.copyWith(
+                          color: theme.colorScheme.onPrimary,
+                          fontWeight: FontWeight.w600,
                         ),
                       ),
                     ),
-                ],
-              ),
-            ],
+                  )
+                : const SizedBox.shrink(),
           ),
         );
       },
