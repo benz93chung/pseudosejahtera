@@ -83,7 +83,7 @@ class _HistoryPageState extends State<HistoryPage> {
                                     )
                                     .toList(),
                             onPressedCheckOutAllButton: () async {
-                              await _historyPageCubit.clearAllCheckedIns();
+                              await _historyPageCubit.checkOutAll();
                             },
                           ),
                           _CheckedOutTabPage(
@@ -181,10 +181,13 @@ class _CheckedInTabPageEmptyBody extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Icon(
-                  Icons.home_outlined,
-                  size: emptyCheckInsIconSize,
-                  color: colorScheme.primary,
+                Opacity(
+                  opacity: 0.6,
+                  child: Icon(
+                    Icons.home_outlined,
+                    size: emptyCheckInsIconSize,
+                    color: colorScheme.primary,
+                  ),
                 ),
                 Text(
                   'No active check-ins today.\nLooks like you are staying safe at home!',

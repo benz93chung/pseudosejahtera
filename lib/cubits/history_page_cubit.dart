@@ -45,7 +45,7 @@ class HistoryPageCubit extends Cubit<HistoryPageState> {
     }
   }
 
-  Future<void> clearAllCheckedIns() async {
+  Future<void> checkOutAll() async {
     if (!state.checkInHistories.any(
       (history) => history.checkInStatus == CheckInStatus.checkedIn,
     )) {

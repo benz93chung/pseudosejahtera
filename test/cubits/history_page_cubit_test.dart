@@ -109,7 +109,7 @@ void main() {
 
         final cubit = HistoryPageCubit.initial();
         await cubit.loadHistories();
-        await cubit.clearAllCheckedIns();
+        await cubit.checkOutAll();
 
         expect(cubit.state, isA<HistoryPageHistoriesUpdated>());
         for (final history in cubit.state.checkInHistories) {

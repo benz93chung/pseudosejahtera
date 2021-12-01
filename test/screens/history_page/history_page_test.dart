@@ -90,7 +90,7 @@ void main() {
       await tester.tap(find.text('Check-out all'));
       await tester.pump();
 
-      verify(cubit.clearAllCheckedIns()).called(1);
+      verify(cubit.checkOutAll()).called(1);
     });
 
     testWidgets('Empty list in Checked-in tab results in showing message', (tester) async {
