@@ -1,5 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pseudosejahtera/enums/check_in_status.dart';
+import 'package:pseudosejahtera/extensions/date_time_extensions.dart';
 import 'package:pseudosejahtera/screens/check_in_details_page/check_in_details_page.dart';
 
 import '../../mocks/cubits/mock_history_page_cubit.dart';
@@ -16,6 +17,29 @@ void main() {
     await _pumpPage(tester: tester, checkInStatus: CheckInStatus.checkedOut);
 
     expect(find.text('Check-out'), findsNothing);
+  });
+
+  testWidgets('Check-out button updates details upon press', (tester) async {
+    await _pumpPage(tester: tester, checkInStatus: CheckInStatus.checkedIn);
+
+    final initialDate = DateTime.fromMillisecondsSinceEpoch(1638372448000).getDateOrTimeString(
+      dateFormat: ddMMMyyyy,
+    );
+
+    final initialTime = DateTime.fromMillisecondsSinceEpoch(1638372448000).getDateOrTimeString(
+      dateFormat: hmmssa,
+    );
+
+    expect(find.text(initialDate), findsOneWidget);
+    expect(find.text(initialTime), findsOneWidget);
+    expect(find.text('IN'), findsOneWidget);
+
+    await tester.tap(find.text('Check-out'));
+    await tester.pump();
+
+    expect(find.text(initialDate), findsNothing);
+    expect(find.text(initialTime), findsNothing);
+    expect(find.text('OUT'), findsOneWidget);
   });
 }
 

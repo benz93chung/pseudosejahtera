@@ -54,6 +54,11 @@ class _CheckInDetailsPageState extends State<CheckInDetailsPage> {
                 color: theme.colorScheme.onPrimary,
               ),
             ],
+            leading: BackButton(
+              onPressed: () {
+                Navigator.of(context).pop(_checkInHistory);
+              },
+            ),
           ),
           body: ElasticScrollableWidget(
             backgroundColor: Colors.grey.shade600,

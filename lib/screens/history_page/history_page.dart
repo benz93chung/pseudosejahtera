@@ -5,6 +5,7 @@ import 'package:pseudosejahtera/components/pseudo_scaffold.dart';
 import 'package:pseudosejahtera/constants/dimensions.dart';
 import 'package:pseudosejahtera/cubits/history_page_cubit.dart';
 import 'package:pseudosejahtera/cubits/history_page_state.dart';
+import 'package:pseudosejahtera/models/check_in_history.dart';
 import 'package:pseudosejahtera/screens/check_in_details_page/check_in_details_page.dart';
 import 'package:pseudosejahtera/screens/history_page/components/history_page_base.dart';
 import 'package:pseudosejahtera/screens/history_page/components/history_page_tile.dart';
@@ -78,7 +79,7 @@ class _HistoryPageState extends State<HistoryPage> {
                                     .map(
                                       (history) => HistoryPageTile(
                                         onPressedTile: () async {
-                                          await Navigator.push(
+                                          final updatedHistory = await Navigator.push<CheckInHistory?>(
                                             context,
                                             MaterialPageRoute(
                                               builder: (context) => CheckInDetailsPage(
@@ -86,6 +87,10 @@ class _HistoryPageState extends State<HistoryPage> {
                                               ),
                                             ),
                                           );
+
+                                          if (updatedHistory != null) {
+                                            _historyPageCubit.checkOut(checkInHistory: updatedHistory);
+                                          }
                                         },
                                         onPressedCheckOut: (history) async {
                                           await _historyPageCubit.checkOut(checkInHistory: history);
@@ -105,7 +110,7 @@ class _HistoryPageState extends State<HistoryPage> {
                                     .map(
                                       (history) => HistoryPageTile(
                                         onPressedTile: () async {
-                                          await Navigator.push(
+                                          final updatedHistory = await Navigator.push<CheckInHistory?>(
                                             context,
                                             MaterialPageRoute(
                                               builder: (context) => CheckInDetailsPage(
@@ -113,6 +118,10 @@ class _HistoryPageState extends State<HistoryPage> {
                                               ),
                                             ),
                                           );
+
+                                          if (updatedHistory != null) {
+                                            _historyPageCubit.checkOut(checkInHistory: updatedHistory);
+                                          }
                                         },
                                         onPressedCheckOut: (_) {},
                                         checkInHistory: history,
