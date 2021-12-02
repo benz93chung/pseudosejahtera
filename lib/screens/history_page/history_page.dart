@@ -5,6 +5,7 @@ import 'package:pseudosejahtera/components/pseudo_scaffold.dart';
 import 'package:pseudosejahtera/constants/dimensions.dart';
 import 'package:pseudosejahtera/cubits/history_page_cubit.dart';
 import 'package:pseudosejahtera/cubits/history_page_state.dart';
+import 'package:pseudosejahtera/screens/check_in_details_page/check_in_details_page.dart';
 import 'package:pseudosejahtera/screens/history_page/components/history_page_base.dart';
 import 'package:pseudosejahtera/screens/history_page/components/history_page_tile.dart';
 import 'package:pseudosejahtera/service_locator.dart';
@@ -76,7 +77,16 @@ class _HistoryPageState extends State<HistoryPage> {
                                 : _historyPageCubit.checkedIns
                                     .map(
                                       (history) => HistoryPageTile(
-                                        onPressedTile: () {},
+                                        onPressedTile: () async {
+                                          await Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) => CheckInDetailsPage(
+                                                checkInHistory: history,
+                                              ),
+                                            ),
+                                          );
+                                        },
                                         onPressedCheckOut: (history) async {
                                           await _historyPageCubit.checkOut(checkInHistory: history);
                                         },
@@ -94,7 +104,16 @@ class _HistoryPageState extends State<HistoryPage> {
                                 : _historyPageCubit.checkedOuts
                                     .map(
                                       (history) => HistoryPageTile(
-                                        onPressedTile: () {},
+                                        onPressedTile: () async {
+                                          await Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) => CheckInDetailsPage(
+                                                checkInHistory: history,
+                                              ),
+                                            ),
+                                          );
+                                        },
                                         onPressedCheckOut: (_) {},
                                         checkInHistory: history,
                                       ),

@@ -22,6 +22,15 @@ class CheckInDetailsPage extends StatefulWidget {
 class _CheckInDetailsPageState extends State<CheckInDetailsPage> {
   late CheckInHistory _checkInHistory;
 
+  void _doCheckOut() {
+    setState(() {
+      final historyJson = _checkInHistory.toJson();
+      historyJson['check_in_status'] = CheckInStatus.checkedOut.index;
+      historyJson['modified_at'] = DateTime.now().millisecondsSinceEpoch;
+      _checkInHistory = CheckInHistory.fromJson(json: historyJson);
+    });
+  }
+
   @override
   void initState() {
     super.initState();
@@ -58,7 +67,7 @@ class _CheckInDetailsPageState extends State<CheckInDetailsPage> {
                     color: theme.colorScheme.surface,
                     padding: const EdgeInsets.all(spacingMid),
                     child: PseudoButton(
-                      onPressed: () {},
+                      onPressed: _doCheckOut,
                       child: Text(
                         'Check-out',
                         style: theme.textTheme.button?.copyWith(

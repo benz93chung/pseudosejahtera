@@ -6,7 +6,6 @@ final ddMMMyyyyHHmmss = DateFormat('yyyy-MM-dd jm');
 final dMMMyyyyhmma = DateFormat('d MMM yyyy, h:mm a');
 final yyyyMMddkkmm = DateFormat('yyyy-MM-dd kk:mm');
 final hmmssa = DateFormat('h:mm:ss a');
-final jm = DateFormat.jm();
 
 extension DateTimeExtension on DateTime {
   bool isToday() {
@@ -19,10 +18,6 @@ extension DateTimeExtension on DateTime {
   }
 
   String getDateOrTimeString({DateFormat? dateFormat}) {
-    if (isToday()) {
-      return jm.format(this);
-    } else {
-      return (dateFormat ?? dMMMyyyyhmma).format(this);
-    }
+    return (dateFormat ?? dMMMyyyyhmma).format(this);
   }
 }
