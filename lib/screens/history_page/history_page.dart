@@ -77,7 +77,9 @@ class _HistoryPageState extends State<HistoryPage> {
                                     .map(
                                       (history) => HistoryPageTile(
                                         onPressedTile: () {},
-                                        onPressedCheckOut: (_) {},
+                                        onPressedCheckOut: (history) async {
+                                          await _historyPageCubit.checkOut(checkInHistory: history);
+                                        },
                                         checkInHistory: history,
                                       ),
                                     )

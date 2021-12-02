@@ -45,26 +45,34 @@ class HistoryPageCubit extends Cubit<HistoryPageState> {
     }
   }
 
-  Future<void> checkOutAll() async {
-    if (!state.checkInHistories.any(
-      (history) => history.checkInStatus == CheckInStatus.checkedIn,
-    )) {
-      return;
-    }
-
+  Future<void> checkOut({required CheckInHistory checkInHistory}) async {
     emit(HistoryPageHistoriesUpdating(checkInHistories: state.checkInHistories));
 
-    var updatedHistories = <CheckInHistory>[...checkedOuts];
+    try {
+      emit(
+        HistoryPageHistoriesUpdated(
+          checkInHistories: _checkOutHistories(historiesToCheckOut: [checkInHistory]),
+        ),
+      );
+    } catch (e) {
+      emit(
+        HistoryPageError(
+          errorObj: e,
+          checkInHistories: state.checkInHistories,
+        ),
+      );
+    }
+  }
+
+  Future<void> checkOutAll() async {
+    emit(HistoryPageHistoriesUpdating(checkInHistories: state.checkInHistories));
 
     try {
-      for (var history in checkedIns) {
-        final newHistoryJson = history.toJson();
-        newHistoryJson['check_in_status'] = CheckInStatus.checkedOut.index;
-
-        updatedHistories.insert(0, CheckInHistory.fromJson(json: newHistoryJson));
-
-        emit(HistoryPageHistoriesUpdated(checkInHistories: updatedHistories));
-      }
+      emit(
+        HistoryPageHistoriesUpdated(
+          checkInHistories: _checkOutHistories(historiesToCheckOut: checkedIns),
+        ),
+      );
     } catch (e) {
       emit(
         HistoryPageError(
@@ -80,4 +88,32 @@ class HistoryPageCubit extends Cubit<HistoryPageState> {
     required CheckInStatus status,
   }) =>
       histories.where((history) => history.checkInStatus == status).toList();
+
+  List<CheckInHistory> _checkOutHistories({
+    required List<CheckInHistory> historiesToCheckOut,
+  }) {
+    final updatedHistories = state.checkInHistories;
+
+    for (var history in historiesToCheckOut) {
+      final index = state.checkInHistories.indexOf(history);
+      updatedHistories[index] = _checkOutHistory(checkInHistory: history);
+    }
+
+    updatedHistories.sort(_sortByModifiedAt);
+    return updatedHistories;
+  }
+
+  int _sortByModifiedAt(CheckInHistory first, CheckInHistory second) {
+    if (first.modifiedAt.millisecondsSinceEpoch > second.modifiedAt.millisecondsSinceEpoch) return -1;
+    if (first.modifiedAt.millisecondsSinceEpoch < second.modifiedAt.millisecondsSinceEpoch) return 1;
+    return 0;
+  }
+
+  CheckInHistory _checkOutHistory({required CheckInHistory checkInHistory}) {
+    final newHistoryJson = checkInHistory.toJson();
+    newHistoryJson['check_in_status'] = CheckInStatus.checkedOut.index;
+    newHistoryJson['modified_at'] = DateTime.now().millisecondsSinceEpoch;
+
+    return CheckInHistory.fromJson(json: newHistoryJson);
+  }
 }

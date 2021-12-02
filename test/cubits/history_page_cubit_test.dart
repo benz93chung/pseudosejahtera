@@ -95,15 +95,65 @@ void main() {
     );
   });
 
-  group('HistoryPageCubit clearAllCheckedIns', () {
+  group('HistoryPageCubit checkOut', () {
     test(
-      'clearAllCheckedIns checks out all check-ins successfully and emits HistoryPageHistoriesUpdated',
+      'checkOut checks out a check-in and emits HistoryPageHistoriesUpdated successfully',
+      () async {
+        final historyToCheckOut = buildCheckInHistoryFromTemplate(
+          id: 'checkin_history_id_2',
+          checkInStatus: CheckInStatus.checkedIn,
+        );
+
+        final historyWhenCheckedOut = buildCheckInHistoryFromTemplate(
+          id: 'checkin_history_id_2',
+          checkInStatus: CheckInStatus.checkedOut,
+        );
+
+        _mockCheckInHistoriesService(
+          checkInHistories: [
+            buildCheckInHistoryFromTemplate(
+              id: 'checkin_history_id_1',
+              checkInStatus: CheckInStatus.checkedIn,
+            ),
+            historyToCheckOut,
+            buildCheckInHistoryFromTemplate(
+              id: 'checkin_history_id_3',
+              checkInStatus: CheckInStatus.checkedIn,
+            ),
+          ],
+        );
+
+        final cubit = HistoryPageCubit.initial();
+        await cubit.loadHistories();
+        await cubit.checkOut(checkInHistory: historyWhenCheckedOut);
+
+        expect(cubit.state, isA<HistoryPageHistoriesUpdated>());
+        expect(
+          cubit.state.checkInHistories.contains(historyWhenCheckedOut),
+          isTrue,
+        );
+      },
+    );
+  });
+
+  group('HistoryPageCubit checkOutAll', () {
+    test(
+      'checkOutAll checks out all check-ins and emits HistoryPageHistoriesUpdated successfully',
       () async {
         _mockCheckInHistoriesService(
           checkInHistories: [
-            buildCheckInHistoryFromTemplate(checkInStatus: CheckInStatus.checkedIn),
-            buildCheckInHistoryFromTemplate(checkInStatus: CheckInStatus.checkedIn),
-            buildCheckInHistoryFromTemplate(checkInStatus: CheckInStatus.checkedIn),
+            buildCheckInHistoryFromTemplate(
+              id: 'checkin_history_id_1',
+              checkInStatus: CheckInStatus.checkedIn,
+            ),
+            buildCheckInHistoryFromTemplate(
+              id: 'checkin_history_id_2',
+              checkInStatus: CheckInStatus.checkedIn,
+            ),
+            buildCheckInHistoryFromTemplate(
+              id: 'checkin_history_id_3',
+              checkInStatus: CheckInStatus.checkedIn,
+            ),
           ],
         );
 
