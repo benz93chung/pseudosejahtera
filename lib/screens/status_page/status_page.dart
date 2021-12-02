@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pseudosejahtera/components/center_to_scrollable_widget.dart';
+import 'package:pseudosejahtera/components/elastic_scrollable_widget.dart';
 import 'package:pseudosejahtera/components/pseudo_scaffold.dart';
 import 'package:pseudosejahtera/constants/dimensions.dart';
 import 'package:pseudosejahtera/enums/check_in_status.dart';
@@ -18,7 +18,9 @@ class StatusPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PseudoScaffold(
-      body: CenterToScrollableWidget(
+      body: ElasticScrollableWidget(
+        backgroundColor: Theme.of(context).colorScheme.background,
+        centerChildren: false,
         physics: const ClampingScrollPhysics(),
         children: [
           const NameAndICNumberSection(

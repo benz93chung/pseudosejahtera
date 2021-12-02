@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pseudosejahtera/components/center_to_scrollable_widget.dart';
+import 'package:pseudosejahtera/components/elastic_scrollable_widget.dart';
 import 'package:pseudosejahtera/components/pseudo_button.dart';
 import 'package:pseudosejahtera/components/pseudo_scaffold.dart';
 import 'package:pseudosejahtera/constants/dimensions.dart';
@@ -46,8 +46,8 @@ class _CheckInDetailsPageState extends State<CheckInDetailsPage> {
               ),
             ],
           ),
-          backgroundColor: Colors.grey.shade600,
-          body: CenterToScrollableWidget(
+          body: ElasticScrollableWidget(
+            backgroundColor: Colors.grey.shade600,
             physics: const ClampingScrollPhysics(),
             children: [
               CheckInDetailsCard(checkInHistory: _checkInHistory),

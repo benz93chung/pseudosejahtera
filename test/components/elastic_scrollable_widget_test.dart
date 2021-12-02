@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:pseudosejahtera/components/center_to_scrollable_widget.dart';
+import 'package:pseudosejahtera/components/elastic_scrollable_widget.dart';
 import 'package:pseudosejahtera/components/pseudo_scaffold.dart';
 
 import '../utils/test_utils.dart';
 
 void main() {
   testWidgets(
-    'CenterToScrollableWidget is rendered with expected elements',
+    'ElasticScrollableWidget is rendered with expected elements',
     (tester) async {
-      await _pumpCenterToScrollableWidget(
+      await _pumpElasticScrollableWidget(
         tester: tester,
         children: [
           const Text(
@@ -34,7 +34,7 @@ void main() {
   );
 }
 
-Future<void> _pumpCenterToScrollableWidget({
+Future<void> _pumpElasticScrollableWidget({
   required WidgetTester tester,
   required List<Widget> children,
   required Widget stickyBottomWidget,
@@ -42,7 +42,7 @@ Future<void> _pumpCenterToScrollableWidget({
   await pumpWidgetToTest(
     tester: tester,
     widgetToTest: PseudoScaffold(
-      body: CenterToScrollableWidget(
+      body: ElasticScrollableWidget(
         children: children,
         physics: const ClampingScrollPhysics(),
         stickyBottomWidget: stickyBottomWidget,
