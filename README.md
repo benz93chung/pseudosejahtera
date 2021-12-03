@@ -1,9 +1,9 @@
 # PseudoSejahtera
 ### A clone of the [MySejahtera app](https://mysejahtera.malaysia.gov.my/intro/), meant to pump some Dart/Flutter muscles as well as exploring what could be done differently.
 </br>
-<img src="screenshots/start_screen.png" width="214" height="463" />
-<img src="screenshots/check_out_from_overview.png" width="214" height="463" />
-<img src="screenshots/in.png" width="214" height="463" />
+<img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/ani9h7csojco4t86nz90.png" width="214" height="463" />
+<img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/okqm99akf5ro2e44omqs.png" width="214" height="463" />
+<img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/1r9cyjnstsbgt6y76gmt.png" width="214" height="463" />
 
 </br>
 
