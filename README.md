@@ -8,7 +8,7 @@
 </br>
 
 ## ⚠️ Important ⚠️
-### This mock is NOT developed by the Malaysian Government. It is STRICTLY for educational purposes and is not meant to be used in real world situations.
+### This mock-up of an app is NOT developed by the Malaysian Government. It is STRICTLY for educational purposes and is not meant to be used in real world situations.
 ### For such situations, you should download and use the MySejahtera app.
 
 </br>
