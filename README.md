@@ -1,13 +1,18 @@
 # PseudoSejahtera
-### A mock-up of the MySejahtera app (which is developed by the Malaysian Government to mitigate the country's COVID-19 pandemic.)
+### A clone of the [MySejahtera app](https://mysejahtera.malaysia.gov.my/intro/), meant to pump some Dart/Flutter muscles as well as exploring what could be done differently.
+</br>
+<img src="screenshots/start_screen.png" width="214" height="463" />
+<img src="screenshots/check_out_from_overview.png" width="214" height="463" />
+<img src="screenshots/in.png" width="214" height="463" />
 
-<img src="home_screen.png" width="214" height="463" />
+</br>
 
-![Preview](https://media.giphy.com/media/nu9UwW3B2AvaTCnyIE/giphy.gif)
+## ⚠️ Important ⚠️
+### This mock is NOT developed by the Malaysian Government. It is STRICTLY for educational purposes and is not meant to be used in real world situations.
+### For such situations, you should download and use the MySejahtera app.
 
-## Important
-### This mock is STRICTLY for educational purposes and is not meant to be used in real world situations.
+</br>
 
 ## Setup
-Run `build_project.sh` under the `scripts` folder. This will generate the mocks (for unit test) following by the `flutter pub get` command to retrieve project dependencies.
+### Before trying to run the app locally, run the `build_project.sh` script under the `scripts` folder. This will generate the mocks (for unit test) and retrieve the project dependencies.
 

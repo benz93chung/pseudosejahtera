@@ -37,7 +37,7 @@ class NameAndICNumberSection extends StatelessWidget {
                   bottom: spacingSmall,
                 ),
                 child: Text(
-                  name.toUpperCase(),
+                  name,
                   style: textTheme.headline5?.copyWith(
                     color: colorScheme.onPrimary,
                     fontWeight: FontWeight.w700,

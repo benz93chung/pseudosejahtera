@@ -107,7 +107,7 @@ class CheckInDetailsInternalCard extends StatelessWidget {
                                 fit: FlexFit.loose,
                                 child: CheckInDetailsField(
                                   label: 'Name',
-                                  value: 'Ryan Joseph Gosling',
+                                  value: 'Ryan Thomas Gosling',
                                 ),
                               ),
                               Spacer(),

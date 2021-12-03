@@ -14,7 +14,7 @@ void main() {
     );
 
     expect(find.byType(Image), findsOneWidget);
-    expect(find.text('Matthew Charles Sanders'.toUpperCase()), findsOneWidget);
+    expect(find.text('Matthew Charles Sanders'), findsOneWidget);
     expect(find.text('000000000000'), findsOneWidget);
   });
 }
