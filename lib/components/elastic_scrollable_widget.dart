@@ -51,16 +51,6 @@ class ElasticScrollableWidget extends StatelessWidget {
             child: centerChildren
                 ? Center(
                     child: content,
-                    // child: Stack(
-                    //   children: [
-                    //     ListView(
-                    //       physics: physics,
-                    //       controller: controller,
-                    //       shrinkWrap: true,
-                    //       children: children,
-                    //     ),
-                    //   ],
-                    // ),
                   )
                 : content,
           ),
@@ -68,25 +58,5 @@ class ElasticScrollableWidget extends StatelessWidget {
         ],
       ),
     );
-
-    // return Stack(
-    //   children: [
-    //     Column(
-    //       crossAxisAlignment: CrossAxisAlignment.stretch,
-    //       mainAxisSize: MainAxisSize.min,
-    //       children: [
-    //         Expanded(
-    //           child: ListView(
-    //             physics: physics,
-    //             controller: controller,
-    //             shrinkWrap: true,
-    //             children: children,
-    //           ),
-    //         ),
-    //         stickyBottomWidget ?? const SizedBox.shrink(),
-    //       ],
-    //     ),
-    //   ],
-    // );
   }
 }
